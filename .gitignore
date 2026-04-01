@@ -1,0 +1,22 @@
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+
+.mplconfig/
+outputs/
+data/
+
+*.idx
+*.tmp
+*.log
+
+.DS_Store
+Thumbs.db
+
+.idea/
+.vscode/
+
+# Local IDE / tooling
+*.pyproj

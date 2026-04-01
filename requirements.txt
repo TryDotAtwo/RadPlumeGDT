@@ -1,0 +1,13 @@
+numpy
+pandas
+xarray
+scipy
+matplotlib
+tqdm
+cartopy
+shapely
+cdsapi
+cfgrib
+eccodes
+ecmwf-opendata
+netCDF4
