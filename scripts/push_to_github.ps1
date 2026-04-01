@@ -27,7 +27,8 @@ if ($LASTEXITCODE -ne 0) {
 }
 
 $desc = "Radioactive plume / fallout scenario tool (meteo blend + puff model). EN/RU README. Not for emergency ops."
-if (git remote get-url origin 2>$null) {
+$remotes = @(git remote 2>$null)
+if ($remotes -contains "origin") {
     Write-Host "Remote 'origin' already exists. Pushing..."
     git push -u origin main
 } else {
