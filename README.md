@@ -128,17 +128,32 @@ CDS downloads need `~/.cdsapirc` where applicable.
 
 Raw meteo: `data/` (gitignored). Outputs: `outputs/` (gitignored).
 
-## Publishing to GitHub (first time)
+## Publishing to GitHub
 
-From this repo root, after creating an **empty** repository on GitHub (no README/license there if you already have them here):
+**Option A — GitHub CLI (recommended)**  
+Install: `winget install GitHub.cli`. One-time login (browser):
+
+```powershell
+& "C:\Program Files\GitHub CLI\gh.exe" auth login --web
+```
+
+Then from the repo root, create `rad-plume` on your account and push `main`:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\push_to_github.ps1
+```
+
+Optional repo name: `.\scripts\push_to_github.ps1 -RepoName my-rad-plume`
+
+Alternatively, non-interactive automation: set env var `GH_TOKEN` (classic PAT with `repo` scope), then run the same script.
+
+**Option B — manual**  
+Create an **empty** repo on GitHub (no README if you already have one here), then:
 
 ```powershell
 git remote add origin https://github.com/YOUR_USER/YOUR_REPO.git
-git branch -M main
 git push -u origin main
 ```
-
-If the default branch should stay `master`, omit `branch -M` and push `master` instead.
 
 ## References
 
