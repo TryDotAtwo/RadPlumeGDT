@@ -46,7 +46,7 @@ This **is**:
 
 > *«Если что-то пойдёт не так… куда это всё полетит?»*
 
-Он подтягивает реальные метеоданные, гоняет **лагранжеву модель гауссовых пуфов** и превращает это в:
+Он подтягивает реальные метеоданные, гоняет **лагранжеву модель гауссовых облаков** и превращает это в:
 
 * карты
 * анимации
@@ -85,6 +85,48 @@ This **is**:
   * 🗺 contamination maps
   * ⚠️ hazard-style outputs
 * Writes a **data-quality report** every run (because we pretend to be responsible)
+
+🗺 Contamination map
+
+Where stuff actually ends up.
+
+<img width="840" height="1120" alt="summary_contamination" src="https://github.com/user-attachments/assets/8811a3ca-4fbf-43aa-9520-0a6c177071b7" />
+
+Ground-level contamination estimate from puff transport + deposition.
+Colors = “how much landed here”.
+Yes, the wind had opinions.
+
+⚠️ Ground dose (mSv-style)
+
+Turning maps into something that feels serious.
+
+<img width="840" height="1120" alt="summary_ground_dose_msv" src="https://github.com/user-attachments/assets/cf8d2fc4-1b02-4838-b79e-a690c5b449ad" />
+
+Post-processed “dose-like” field derived from deposition.
+Not regulatory. Not precise.
+But finally — numbers.
+
+☁️ Plume snapshot
+
+The cloud, mid-flight.
+
+<img width="1378" height="884" alt="image" src="https://github.com/user-attachments/assets/c8dd665d-27f5-4552-9d76-b9c1103e42f1" />
+
+Instant view of the plume structure in the atmosphere.
+Advection + spread doing their thing.
+Basically: physics unfolding in real time.
+
+🌬 Wind field
+
+The invisible boss fight.
+
+<img width="1078" height="837" alt="image" src="https://github.com/user-attachments/assets/4db98e83-7bf0-4a27-a293-e175c3348190" />
+
+Driving force behind everything.
+If this changes — everything changes.
+The plume is just along for the ride.
+
+
 
 ---
 
