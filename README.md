@@ -6,7 +6,7 @@
 
 ---
 
-## 🇬🇧 English
+## English
 
 **The world is… not boring.**
 So instead of doomscrolling — simulate it.
@@ -37,7 +37,7 @@ This **is**:
 
 ---
 
-## 🇷🇺 Русский
+## Русский
 
 **Мир сейчас не слишком расслабляющий.**
 Поэтому вместо паники — моделируем.
