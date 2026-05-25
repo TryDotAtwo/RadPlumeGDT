@@ -1,0 +1,16 @@
+name: rad-plume
+
+services:
+  rad-plume:
+    build:
+      context: .
+      args:
+        BASE_IMAGE: python:3.11-slim-bookworm
+    image: rad-plume:latest
+    environment:
+      MPLBACKEND: Agg
+      MPLCONFIGDIR: /app/.mplconfig
+    volumes:
+      - ./data:/app/data
+      - ./outputs:/app/outputs
+    command: ["report"]
