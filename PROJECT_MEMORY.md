@@ -107,6 +107,8 @@ Still missing:
 
 ## Change History
 
+- 2026-05-25: synced local `README.md` to the newer GitHub/origin README content and added a public Docker section. Added minimal Docker support files: `Dockerfile`, `docker-compose.yml`, `.dockerignore`. Docker image uses public base `python:3.11-slim-bookworm`, installs only `ffmpeg` via apt, and installs Python runtime dependencies from `requirements.txt`.
+- 2026-05-25: Docker smoke verification passed: `docker compose build rad-plume`, `py -m compileall main.py src`, `docker compose run --rm rad-plume report`, and a no-network empty-`data/` `docker run ... rad-plume:latest report` fresh-clone check. Result record stored at `test_results/docker_smoke_2026-05-25.md`. No fresh meteo download command was run.
 - 2026-03-29: fixed `all` memory blow-up on Windows. Root cause: each process rebuilt `best_available_blend`, so xarray concat/reindex multiplied RAM pressure. Fix: precompute one runtime NetCDF blend and pass that path to workers.
 - 2026-03-29: fixed second `all` RAM amplifier. Root cause: `plume` and `summary` each rebuilt the same full-horizon fixed-incident interpolation independently. Fix: `all` now runs `run_plume_products()` once and reuses that single heavy pass for both outputs.
 - 2026-03-30: switched dispersion integration to overlapping 48-hour meteo batches. Root cause: full-horizon 15/30-minute interpolation of multilevel fields produced GiB-scale arrays. Fix: keep the full incident-to-end-of-data horizon, but interpolate one time chunk at a time and carry puff state plus accumulated fields across chunks.
@@ -131,6 +133,8 @@ Still missing:
 - 2026-04-01: user requested GitHub publication prep: bilingual playful README (EN/RU), MIT `LICENSE`, `.gitignore` for `*.pyproj`, initial git commit; remote push requires user-created empty GitHub repo + `git remote add` + `git push`.
 - 2026-04-01: user asked to install GitHub CLI and push. `winget install GitHub.cli` applied; `gh repo create` requires `gh auth login` (browser device flow) or `GH_TOKEN`; added `scripts/push_to_github.ps1` and README publishing section.
 - 2026-04-01: `gh auth login` completed (account TryDotAtwo); repo https://github.com/TryDotAtwo/rad-plume created and `main` pushed; fixed `push_to_github.ps1` origin check for PowerShell when `origin` absent.
+- 2026-05-25: user requested GitHub README sync, comparison with local files, `.gitignore` check, Docker setup, Docker launch verification without fresh data download, and GitHub push.
+- 2026-05-25: user clarified Docker scope: normal clone-and-run Docker for other people. Final Dockerfile uses public `python:3.11-slim-bookworm`, keeps only `ffmpeg` as apt addition, and leaves geospatial/GRIB dependencies to Python wheels in `requirements.txt`.
 
 ## Next Useful Upgrades
 

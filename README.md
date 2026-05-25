@@ -218,6 +218,30 @@ py main.py --demo --lat 31.067 --lon 35.033 --radius-km 400
 
 Without `--demo`, non-demo wind covers the configured incident anchor through **end of available data**, chunked so RAM stays sane.
 
+## Docker
+
+The Docker setup uses a public Python slim image, installs `ffmpeg` for MP4 rendering, and installs Python packages from `requirements.txt`.
+
+Build:
+
+```powershell
+docker compose build
+```
+
+Run a smoke check:
+
+```powershell
+docker compose run --rm rad-plume report
+```
+
+Run a demo render against mounted local data:
+
+```powershell
+docker compose run --rm rad-plume wind --demo
+```
+
+`data/` and `outputs/` are mounted into `/app/data` and `/app/outputs`. A fresh clone can run `report` immediately; map/video targets need existing meteo in `data/` or an explicit `download` run with the required data-service credentials.
+
 ## Data strategy
 
 Default source: **`best_available_blend`**.
